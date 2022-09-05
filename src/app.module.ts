@@ -5,14 +5,15 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { BooksModule } from './books/books.module';
+import configuration from './config/configuration';
 
 @Module({
   imports: [
-    // ConfigModule.forRoot(),
+    ConfigModule.forRoot({
+      load: [configuration],
+    }),
     BooksModule,
-    MongooseModule.forRoot(
-      'mongodb+srv://poomrtp:CgUdNpmuaIbY5J8H@cluster0.tjtdjuc.mongodb.net/poomrtp-bookstore?retryWrites=true&w=majority',
-    ),
+    MongooseModule.forRoot(process.env.MONGODB_URL),
     // AuthModule,
   ],
   controllers: [AppController],
