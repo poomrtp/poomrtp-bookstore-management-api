@@ -2,7 +2,7 @@ import { Controller, Get } from '@nestjs/common';
 import { BooksService } from './books.service';
 import { Book } from './schemas/books.schema';
 
-@Controller('books')
+@Controller('products')
 export class BooksController {
   constructor(private booksService: BooksService) {}
   @Get()
