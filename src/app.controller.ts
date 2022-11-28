@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
-import { Book } from './books/schemas/books.schema';
+import { Product } from './product/schemas/product.schema';
 
 @Controller()
 export class AppController {
@@ -11,7 +11,7 @@ export class AppController {
     return this.appService.getHello();
   }
   @Get('/health-check')
-  getHealthCheck(): Promise<Book[]> {
+  getHealthCheck(): Promise<Product[]> {
     return this.appService.getHealthCheck();
   }
 }

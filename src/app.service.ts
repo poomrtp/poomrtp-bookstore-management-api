@@ -1,14 +1,14 @@
 import { Injectable } from '@nestjs/common';
-import { BooksService } from './books/books.service';
-import { Book } from './books/schemas/books.schema';
+import { ProductService } from './product/product.service';
+import { Product } from './product/schemas/product.schema';
 
 @Injectable()
 export class AppService {
-  constructor(private bookService: BooksService) {}
+  constructor(private bookService: ProductService) {}
   getHello(): string {
     return 'Hello World!';
   }
-  getHealthCheck(): Promise<Book[]> {
+  getHealthCheck(): Promise<Product[]> {
     return this.bookService.findAll();
   }
 }
